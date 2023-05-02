@@ -25,6 +25,5 @@ rm -f myapp.apk temp.apk
 aapt2 link --manifest ../AndroidManifest.xml --target-sdk-version $API_LEVEL \
 	-I $SDK_ROOT/platforms/android-$API_LEVEL/android.jar -o temp.apk
 zip -qr temp.apk lib
-jarsigner -storepass android -keystore debug.keystore temp.apk debugkey >/dev/null
 zipalign 4 temp.apk myapp.apk
 apksigner sign --key-pass pass:android --ks-pass pass:android --ks debug.keystore myapp.apk
