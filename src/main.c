@@ -132,12 +132,34 @@ handle_cmd(struct android_app *app, int32_t cmd)
 	}
 }
 
+static int32_t
+handle_input(struct android_app *app, AInputEvent *event)
+{
+	switch (AInputEvent_getType(event)) {
+	case AINPUT_EVENT_TYPE_KEY:
+		break;
+	case AINPUT_EVENT_TYPE_MOTION:
+		break;
+	case AINPUT_EVENT_TYPE_FOCUS:
+		break;
+	case AINPUT_EVENT_TYPE_CAPTURE:
+		break;
+	case AINPUT_EVENT_TYPE_DRAG:
+		break;
+	case AINPUT_EVENT_TYPE_TOUCH_MODE:
+		break;
+	}
+
+	return 0;
+}
+
 void
 android_main(struct android_app *app)
 {
 	struct android_state state = {0};
 	app->userData = &state;
 	app->onAppCmd = handle_cmd;
+	app->onInputEvent = handle_input;
 
 	int events;
 	struct android_poll_source *source;
