@@ -5,7 +5,7 @@ NDK_ROOT="/opt/android-ndk"
 SDK_ROOT="/opt/android-sdk"
 
 CC="$NDK_ROOT/toolchains/llvm/prebuilt/linux-x86_64/bin/clang"
-CFLAGS="-g3 -std=c11 -Wall -Wextra -Wno-unused-parameter -Werror -I$NDK_ROOT/sources/android/native_app_glue"
+CFLAGS="-O2 -std=c11 -Wall -Wextra -Wno-unused-parameter -Werror -I$NDK_ROOT/sources/android/native_app_glue"
 LDFLAGS="-shared -llog -landroid -lGLESv2 -lEGL"
 
 set -e
